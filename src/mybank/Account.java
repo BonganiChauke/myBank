@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mybank;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import static mybank.MyBank.input;
 
 /**
  *
@@ -14,6 +16,51 @@ public class Account {
 
     private static final AtomicInteger count = new AtomicInteger(145396); // to increament the value 
     private int accountNumber; // accountNumber to auto generated to the user
+
+    //method for menu display
+    public void menu() {
+
+        //try and catch for error handling
+        try {
+
+            //menu system for user to select options
+            System.out.println("Welcome to myBank \n"
+                    + "1. View Balance\n"
+                    + "2. Deposit\n"
+                    + "3. Withdraw\n"
+                    + "4. Exit\n");
+
+            //variable to capture user input
+            int option = input.nextInt();
+
+            //switch case for user options
+            switch (option) {
+
+                case 1:
+                    //method to view balance
+                    break;
+
+                case 2:
+                    //method to deposit
+                    break;
+
+                case 3:
+                    //method to withdraw
+                    break;
+
+                case 4:
+                    //method to exit
+                    break;
+
+                default:
+                    System.out.print("Invalid Input\n");
+            }
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage() + "\n");
+        }
+    }//end
 
     //method to open an account
     public void openAccount(Scanner input, String firstName, String lastName, String typeAccount) {
@@ -61,9 +108,12 @@ public class Account {
                     + "Last Name  : " + lastName + "\n"
                     + "Type of Account : " + typeAccount + "\n"
                     + "Account Number  : " + accountNumber + "\n");
+            
+            System.out.println("\n");
+            menu();
 
         } catch (Exception e) {
-        
+
             System.out.println(e.getMessage() + "\n");
 
         }

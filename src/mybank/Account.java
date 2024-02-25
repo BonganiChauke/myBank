@@ -49,7 +49,8 @@ public class Account {
                     break;
 
                 case 4:
-                    //method to exit
+                    //application exit
+                    System.exit(0);
                     break;
 
                 default:

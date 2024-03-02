@@ -80,7 +80,29 @@ public class Account {
             int option = 0;
 
             //do while to keep looping the prompt if selects an invalid input
-            do {
+//            do {
+//
+//                //prompts user for type of account
+//                System.out.println("Select an option :\n1. Savigs\n2. Cheque");
+//                option = input.nextInt();
+//
+//                //if statement to assign a value to variable typeAccount
+//                if (option == 1) {
+//
+//                    typeAccount = "Savings";
+//
+//                } else if (option == 2) {
+//
+//                    typeAccount = "Cheque";
+//
+//                } else {
+//
+//                    System.out.println("Invalid Option");
+//                }
+//
+//            } while (option != 1 && option != 2);
+            //while to loop the prompt if a user selects an invalid
+            while (option != 1 && option != 2) {
 
                 //prompts user for type of account
                 System.out.println("Select an option :\n1. Savigs\n2. Cheque");
@@ -99,8 +121,7 @@ public class Account {
 
                     System.out.println("Invalid Option");
                 }
-
-            } while (option != 1 && option != 2);
+            }
 
             accountNumber = count.incrementAndGet();// to increment the variable accountNumber using count AtomicInteger
             System.out.println("\n*************************************************\n"
@@ -109,7 +130,7 @@ public class Account {
                     + "Last Name  : " + lastName + "\n"
                     + "Type of Account : " + typeAccount + "\n"
                     + "Account Number  : " + accountNumber + "\n");
-            
+
             System.out.println("\n");
             menu();
 

@@ -136,6 +136,16 @@ public class Account {
                     + "Account Number  : " + accountNumber + "\n");
 
             System.out.println("\n");
+            
+            System.out.println("*************************************************\n"
+                    + "Make your first deposit\n");
+            
+            //prompt for user to input balance
+            System.out.println("Enter amount for : Deposit");
+            balance = input.nextLong();
+            
+            System.out.println("\n");
+            
             //calling the menu for user
             menu();
 

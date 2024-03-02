@@ -16,6 +16,10 @@ public class Account {
 
     private static final AtomicInteger count = new AtomicInteger(145396); // to increament the value 
     private int accountNumber; // accountNumber to auto generated to the user
+    
+    //variables to store large units useful for balance and deposit amounts
+    public static long depositAmount;
+    private static long balance;
 
     //method for menu display
     public void menu() {
@@ -132,6 +136,7 @@ public class Account {
                     + "Account Number  : " + accountNumber + "\n");
 
             System.out.println("\n");
+            //calling the menu for user
             menu();
 
         } catch (Exception e) {
@@ -141,5 +146,27 @@ public class Account {
         }
 
     }//end
+    
+    //method to make a deposit
+    public long deposit (Scanner input){
+        
+        //try catch for error handling 
+        try{
+            
+            //Prompt for user to input deposit
+            System.out.println("Enter the amount to : Deposit");
+            depositAmount = input.nextLong();//store input to scanner
+            
+            //adding deposit to balance
+            balance = balance + depositAmount;
+        
+        }catch (Exception e){
+            
+         System.out.println(e.getMessage() + "\n");
+          
+        }
+              
+        return depositAmount;// return statement
+    }
 
 }

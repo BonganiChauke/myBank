@@ -18,8 +18,7 @@ public class Account {
     private int accountNumber; // accountNumber to auto generated to the user
     
     //variables to store large units useful for balance and deposit amounts
-    public static long depositAmount;
-    private static long balance;
+    public static long depositAmount, withdrawAmount, balance;
 
     //method for menu display
     public void menu() {
@@ -151,7 +150,7 @@ public class Account {
 
         } catch (Exception e) {
 
-            System.out.println(e.getMessage() + "\n");
+            System.out.println(e + "\n");
 
         }
 
@@ -172,11 +171,47 @@ public class Account {
         
         }catch (Exception e){
             
-         System.out.println(e.getMessage() + "\n");
+         System.out.println(e + "\n");
           
         }
               
         return depositAmount;// return statement
+    }
+    
+    //method to withdraw 
+    public long withdraw(Scanner input){
+        
+        //try catch 
+        try{
+        
+            //prompt for user to enter amount to withdraw
+            System.out.println("Enter amount to : Withdraw ");
+            withdrawAmount = input.nextLong();
+            
+            //if statement for checking negative
+            if(balance >= withdrawAmount){
+                
+                //To calculate available amount
+                long availableBalance = balance - withdrawAmount;
+                
+                //Shows user amount available
+                System.out.println("Available balance : " + withdrawAmount);
+                
+                
+            }else{
+                
+              System.out.print("Transaction failed... Insuffient Amount\t Transaction Failed...!!!");
+
+            }
+        
+        }catch(Exception e){
+            
+            System.out.println(e + "\n");
+
+        }
+        
+        return withdrawAmount;
+        
     }
 
 }

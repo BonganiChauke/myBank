@@ -31,6 +31,7 @@ public class Account {
                     + "1. View Balance\n"
                     + "2. Deposit\n"
                     + "3. Withdraw\n"
+                    + "5. Account Details"
                     + "4. Exit\n");
 
             //variable to capture user input
@@ -137,11 +138,15 @@ public class Account {
             System.out.println("\n");
             
             System.out.println("*************************************************\n"
-                    + "Make your first deposit\n");
+                    + "Make your first deposit\nNote amount must be R50 and up ");
             
-            //prompt for user to input balance
-            System.out.println("Enter amount for : Deposit");
-            balance = input.nextLong();
+            
+            while(balance <= 49){
+                
+                //prompt for user to input balance
+                System.out.println("Enter amount for : Deposit");
+                balance = input.nextLong();
+            }
             
             System.out.println("\n");
             
@@ -168,6 +173,11 @@ public class Account {
             
             //adding deposit to balance
             balance = balance + depositAmount;
+            
+            System.out.println("\n");
+            
+            //calling the menu for user
+            menu();
         
         }catch (Exception e){
             
@@ -176,7 +186,8 @@ public class Account {
         }
               
         return depositAmount;// return statement
-    }
+        
+    }//end
     
     //method to withdraw 
     public long withdraw(Scanner input){
@@ -200,9 +211,14 @@ public class Account {
                 
             }else{
                 
-              System.out.print("Transaction failed... Insuffient Amount\t Transaction Failed...!!!");
+              System.out.print("Insuffient Amount\t Transaction Failed...!!!");
 
             }
+            
+            System.out.println("\n");
+            
+            //calling the menu for user
+            menu();
         
         }catch(Exception e){
             
@@ -211,6 +227,35 @@ public class Account {
         }
         
         return withdrawAmount;
+        
+    }//end
+    
+    //method to view user details
+    public void userDetails(Scanner input, String firstName, String lastName, String typeAccount){
+        
+        //try catch for error handling 
+        try{
+            
+            if(firstName.isEmpty() && lastName.isEmpty() && typeAccount.isEmpty()){
+                
+                System.out.println("No account has been creted yet");
+                
+            }else{
+                
+                System.out.println("\n*************************************************\n"
+                    + "Account Details\n"
+                    + "First Name : " + firstName + "\n"
+                    + "Last Name  : " + lastName + "\n"
+                    + "Type of Account : " + typeAccount + "\n"
+                    + "Account Number  : " + accountNumber + "\n"
+                    + "Balance : " + balance);
+            }
+            
+        }catch(Exception e){
+            
+            System.out.println(e + "\n");
+        }
+        
         
     }
 

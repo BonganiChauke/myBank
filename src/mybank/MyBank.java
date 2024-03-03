@@ -37,7 +37,8 @@ public class MyBank {
                 System.out.println("********************************************\n"
                         + "Welcome To myBank Application\n"
                         + "1. Create Account\n"
-                        + "2. Exit Application\n");
+                        + "2. Account Details\n"
+                        + "3. Exit Application\n");
 
                 int option = input.nextInt();
 
@@ -47,8 +48,13 @@ public class MyBank {
                         //calling the open account method
                         objAccount.openAccount(input, firstName, lastName, typeAccount);
                         break;
-
+                        
                     case 2:
+                        //calling view account details methos
+                        objAccount.userDetails(input, firstName, lastName, typeAccount);
+                        break;
+
+                    case 3:
                         //application exit
                         System.exit(0);
                         break;
